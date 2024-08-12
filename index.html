@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Випадкові завдання</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #game-container {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <button onclick="resetGame()">Перезапустити гру</button>
+        <h1>Випадкові завдання</h1>
+        <p id="task">Натисніть кнопку, щоб отримати завдання</p>
+        <button onclick="getTask()">Отримати завдання</button>
+    </div>
+
+    <script>
+        const initialTasks = [
+            "Зробити 10 присідань",
+            "Прочитати 2 сторінки книги",
+            "Випити склянку води",
+            "Погуляти 10 хвилин",
+            "Написати 3 речення про свій день"
+        ];
+
+        let tasks = [...initialTasks]; // Копія масиву початкових завдань
+
+        function getTask() {
+            if (tasks.length > 0) {
+                const randomIndex = Math.floor(Math.random() * tasks.length);
+                const task = tasks[randomIndex];
+                document.getElementById('task').innerText = `Ваше завдання: ${task}`;
+                tasks.splice(randomIndex, 1);
+            } else {
+                document.getElementById('task').innerText = "Усі завдання виконані!";
+            }
+        }
+
+        function resetGame() {
+            tasks = [...initialTasks]; // Скидання до початкового списку завдань
+            document.getElementById('task').innerText = "Гра перезапущена. Натисніть кнопку, щоб отримати завдання";
+        }
+    </script>
+</body>
+</html>
