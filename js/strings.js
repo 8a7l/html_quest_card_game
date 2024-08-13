@@ -1,4 +1,4 @@
-const texts = {
+const strings = {
     pageTitle: "Випадкові завдання",
     resetButtonText: "Перезапустити гру",
     mainHeading: "Випадкові завдання",
